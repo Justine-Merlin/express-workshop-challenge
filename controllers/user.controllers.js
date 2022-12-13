@@ -31,7 +31,27 @@ const getUserById = async (req, res) => {
   }
 };
 
+const addUser = async (req, res) => {
+  const { email, password } = req.body;
+  if (email && password) {
+    try {
+      const user = await User.add({ email, password });
+      if (user) {
+        res.status(201).json({ email, password });
+      } else {
+        res.status(400).send("an error occured while create user");
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+  } else {
+    res.status(404).send("informations are not correct")
+  }
+};
+
 module.exports = {
   getUsers,
-  getUserById
+  getUserById,
+  addUser
 }

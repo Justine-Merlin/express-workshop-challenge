@@ -10,7 +10,15 @@ const find = (id) => {
   ]);
 }
 
+const add = (user) => {
+  return connection.database.query(
+    `insert into users (email, password) values (?, ?)`,
+    [user.email, user.password]
+  );
+}
+
 module.exports = {
   findAll,
-  find
+  find,
+  add
 }

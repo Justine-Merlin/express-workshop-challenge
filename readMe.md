@@ -12,7 +12,7 @@ The goal is to realize a simple CRUD on a MySQL `users` table :
 ## Initialization
 
 1. Clone this repo.
-2. Run command `cd wcs-express-challenge` and `npm install`.
+2. Run command `cd express-workshop-challenge` and `npm install`.
 3. Create `.env` file base on `.env.sample` file and fill it with you MySQL user's informations.
 4. Run command `npm run migrate` to initialize database.
 5. Run command `npm run dev` to start the project.

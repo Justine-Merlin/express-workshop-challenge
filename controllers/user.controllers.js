@@ -30,7 +30,7 @@ const getUserById = async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("id is not valid")
+    res.status(404).send("id is not valid");
   }
 };
 
@@ -49,7 +49,7 @@ const addUser = async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("informations are not correct")
+    res.status(404).send("informations are not correct");
   }
 };
 
@@ -70,7 +70,7 @@ const updateUser = async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    res.status(404).send("id is not valid")
+    res.status(404).send("id is not valid");
   }
 };
 

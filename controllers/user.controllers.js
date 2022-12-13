@@ -1,4 +1,5 @@
 const User = require('../models/User.model');
+const { isEmail } = require('../utils');
 
 const getUsers = async (req, res) => {
   try {
@@ -33,7 +34,7 @@ const getUserById = async (req, res) => {
 
 const addUser = async (req, res) => {
   const { email, password } = req.body;
-  if (email && password) {
+  if (isEmail(email) && password) {
     try {
       const user = await User.add({ email, password });
       if (user) {

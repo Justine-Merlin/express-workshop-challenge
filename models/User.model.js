@@ -17,8 +17,17 @@ const add = (user) => {
   );
 }
 
+const update = (user) => {
+  return connection.database.query(
+    `update users set email = ?, password = ? where id = ?`,
+    [user.email, user.password, user.id]
+  );
+
+}
+
 module.exports = {
   findAll,
   find,
-  add
+  add,
+  update,
 }

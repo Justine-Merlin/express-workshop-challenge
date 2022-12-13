@@ -17,6 +17,7 @@ const add = (user) => {
   );
 }
 
+
 const update = (user) => {
   return connection.database.query(
     `update users set email = ?, password = ? where id = ?`,
@@ -25,9 +26,16 @@ const update = (user) => {
 
 }
 
+const remove = (id) => {
+  return connection.database.query(`delete from users where id = ?`, [
+    id,
+  ]);
+}
+
 module.exports = {
   findAll,
   find,
   add,
   update,
+  remove,
 }

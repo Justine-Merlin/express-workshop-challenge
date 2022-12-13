@@ -1,4 +1,4 @@
-const User = require('../models/User.model');
+const User = require('../models/user.model');
 const { isEmail } = require('../utils');
 
 const getUsers = async (req, res) => {
@@ -74,9 +74,30 @@ const updateUser = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  const id = parseInt(req.params.id);
+
+  if (id) {
+    try {
+      const [deletedUser] = await User.remove(id);
+      if (deletedUser.affectedRows > 0) {
+        res.status(200).send(`user ${id} has been deleted successfully`);
+      } else {
+        res.status(404).send("user not found");
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send(error);
+    }
+  } else {
+    res.status(404).send("user is not valid");
+  }
+};
+
 module.exports = {
   getUsers,
   getUserById,
   addUser,
   updateUser,
+  deleteUser,
 }
